@@ -19,11 +19,13 @@
             <button id="save-task">Сохранить</button>
         </form>
     </div>
-    <h1>Список дел </h1>
+    <h1>Список дел (<span th:text="${tasksCount}">0</span>)</h1>
     <button id="show-add-task-form">Добавить</button>
     <br><br>
     <div id="task-list">
-
+        <div th:each="task : ${tasks}">
+            <a href="#" class="task-link" th:attr="data-id=${task.id}" th:text="${task.name}"></a>
+        </div>
     </div>
 </body>
 </html>
